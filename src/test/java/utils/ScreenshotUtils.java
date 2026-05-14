@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class ScreenshotUtils {
 
@@ -21,6 +23,12 @@ public class ScreenshotUtils {
 
         byte[] screenshotBytes =
                 ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        
+
+        // Generate timestamp
+           DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
+           String timestamp = LocalDateTime.now().format(formatter);
+
 
         // Create screenshot directory
         Path screenshotDir = Paths.get(baseOutputDir, "screenshots");
@@ -29,7 +37,7 @@ public class ScreenshotUtils {
 
             // Save screenshot file
             Path screenshotPath =
-                    screenshotDir.resolve(name.replace(" ", "_") + ".png");
+                    screenshotDir.resolve(name.replace(" ", "_") + timestamp +".png");
 
             Files.write(screenshotPath, screenshotBytes);
 

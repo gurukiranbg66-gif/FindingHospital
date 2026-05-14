@@ -2,9 +2,13 @@ package tests;
 
 import java.io.IOException;
 import java.util.List;
-import org.openqa.selenium.*;
+
 import org.testng.annotations.Test;
-import io.qameta.allure.*;
+
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import pages.CitiesPage;
 import pages.CorporatePage;
 import pages.HospitalPage;
@@ -15,6 +19,7 @@ import utils.ConfigReader;
 import utils.ExcelUtilsRefactored;
 import utils.LoggerUtil;
 import utils.ScreenshotUtils;
+
 
 /**
  * Practo Automation Test Suite
